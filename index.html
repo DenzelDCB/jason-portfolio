@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jason Babs | Portfolio</title>
-    <meta name="description" content="Jason Babs - Creative Scratch Developer, Reader & Digital Creator">
+    <title>Eniiyi Babs | Portfolio</title>
+    <meta name="description" content="Eniiyi Babs - Creative Developer, Reader & Digital Creator">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -62,7 +62,7 @@
             top: 0; left: 0; right: 0; bottom: 0;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="200" r="120" fill="rgba(255,255,255,0.05)"/><circle cx="800" cy="300" r="180" fill="rgba(255,255,255,0.08)"/><circle cx="600" cy="700" r="150" fill="rgba(255,255,255,0.06)"/></svg>');
             background-size: cover;
-            animation: float 20s infinite linear;
+            animation: float 25s infinite linear;
         }
 
         @keyframes float {
@@ -72,21 +72,41 @@
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
+            font-size: 4.8rem;
             margin-bottom: 1rem;
             opacity: 0;
-            transform: translateY(50px);
-            animation: fadeUp 1s forwards 0.5s;
+            transform: translateY(60px);
+            animation: fadeUp 1.2s forwards 0.5s;
         }
 
         .hero p {
-            font-size: 1.4rem;
-            max-width: 600px;
+            font-size: 1.5rem;
+            max-width: 700px;
             opacity: 0.9;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             opacity: 0;
-            transform: translateY(40px);
-            animation: fadeUp 1s forwards 0.8s;
+            transform: translateY(50px);
+            animation: fadeUp 1.2s forwards 0.8s;
+        }
+
+        .cta-button {
+            padding: 1rem 2.5rem;
+            background: white;
+            color: var(--purple-dark);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            opacity: 0;
+            animation: fadeUp 1.2s forwards 1.1s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
         @keyframes fadeUp {
@@ -108,6 +128,7 @@
         nav.scrolled {
             background: rgba(139, 92, 246, 0.95);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 1rem 0;
         }
 
         nav ul {
@@ -124,10 +145,9 @@
             padding: 0.7rem 1.5rem;
             border-radius: 50px;
             transition: var(--transition);
-            position: relative;
         }
 
-        nav a:hover {
+        nav a:hover, nav a.active {
             background: rgba(255,255,255,0.2);
             transform: translateY(-3px);
         }
@@ -135,99 +155,160 @@
         main {
             max-width: 1300px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 6rem 2rem 4rem;
         }
 
         section {
-            margin-bottom: 8rem;
+            margin-bottom: 10rem;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: var(--transition);
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 3.2rem;
             text-align: center;
             margin-bottom: 4rem;
             color: var(--purple-dark);
-            position: relative;
         }
 
         body.dark h2 { color: var(--purple-light); }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 3rem;
         }
 
         .card {
             background: white;
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
             box-shadow: var(--card-shadow);
             transition: var(--transition);
-            opacity: 0;
-            transform: translateY(60px);
+            cursor: pointer;
+            position: relative;
         }
 
         body.dark .card {
             background: rgba(139, 92, 246, 0.15);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(167, 139, 250, 0.3);
         }
 
         .card:hover {
-            transform: translateY(-20px) scale(1.03);
-            box-shadow: 0 25px 60px rgba(139, 92, 246, 0.3);
-        }
-
-        .card.visible {
-            opacity: 1;
-            transform: translateY(0);
-            animation: cardFade 0.8s forwards;
-        }
-
-        @keyframes cardFade {
-            to { opacity: 1; transform: translateY(0); }
+            transform: translateY(-20px) scale(1.04);
+            box-shadow: 0 30px 70px rgba(139, 92, 246, 0.35);
         }
 
         .card-header {
             background: linear-gradient(135deg, var(--purple), var(--purple-dark));
             color: white;
-            padding: 2rem 1.5rem;
+            padding: 2.5rem 1.5rem;
             text-align: center;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 600;
         }
 
         .card-body {
             padding: 2rem;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
+            color: var(--gray);
+            min-height: 120px;
+        }
+
+        .card::after {
+            content: 'Click to expand';
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            font-size: 0.9rem;
+            color: var(--purple);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .card:hover::after {
+            opacity: 0.7;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 24px;
+            max-width: 600px;
+            width: 90%;
+            padding: 3rem;
+            text-align: center;
+            transform: scale(0.8);
+            transition: var(--transition);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+
+        body.dark .modal-content {
+            background: rgba(30, 15, 50, 0.95);
+            color: var(--text);
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            cursor: pointer;
             color: var(--gray);
         }
 
         .placeholder {
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--gray);
             font-style: italic;
-            margin-top: 4rem;
+            margin-top: 5rem;
             opacity: 0.7;
         }
 
         #theme-toggle {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
+            bottom: 2.5rem;
+            right: 2.5rem;
             z-index: 1000;
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             background: var(--purple);
             color: white;
             border: none;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.5);
             transition: var(--transition);
             display: flex;
             align-items: center;
@@ -235,19 +316,20 @@
         }
 
         #theme-toggle:hover {
-            transform: scale(1.15) rotate(90deg);
+            transform: scale(1.2) rotate(360deg);
         }
 
         footer {
             text-align: center;
-            padding: 4rem;
+            padding: 5rem;
             color: var(--gray);
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3.2rem; }
-            nav ul { gap: 1rem; flex-wrap: wrap; padding: 0 1rem; }
+            .hero h1 { font-size: 3.5rem; }
+            .hero p { font-size: 1.3rem; }
+            nav ul { gap: 1.5rem; flex-wrap: wrap; padding: 0 1rem; }
             .grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -256,7 +338,7 @@
 
     <nav id="nav">
         <ul>
-            <li><a href="#about">About</a></li>
+            <li><a href="#about" class="active">About</a></li>
             <li><a href="#scratch">Scratch</a></li>
             <li><a href="#books">Books</a></li>
             <li><a href="#posts">Posts</a></li>
@@ -267,29 +349,30 @@
 
     <header>
         <div class="hero">
-            <h1>Jason Babs</h1>
-            <p>Creative Scratch Developer | Enthusiastic Reader | Digital Storyteller</p>
+            <h1>Eniiyi Babs</h1>
+            <p>Creative Developer Enthusiastic Reader Digital Storyteller</p>
+            <button class="cta-button" id="scroll-down">Explore My Journey</button>
         </div>
     </header>
 
     <main>
-        <section id="about">
+        <section id="about" class="visible">
             <h2>About Me</h2>
-            <p class="intro" style="max-width: 900px; margin: 0 auto 4rem; text-align: center; font-size: 1.25rem; opacity: 0; animation: fadeUp 1s forwards 0.3s;">
-                Hello! I’m a passionate young creator exploring the worlds of code, literature, and digital expression. This portfolio is my living canvas, growing with every project I build, book I finish, and idea I share.
+            <p style="max-width: 900px; margin: 0 auto 4rem; text-align: center; font-size: 1.3rem; line-height: 1.9;">
+                Hello! I’m a passionate young creator exploring the worlds of code, literature, and digital expression. This portfolio is my living canvas, growing with every project I build, book I finish, and idea I share. Click any card below to learn more.
             </p>
         </section>
 
         <section id="scratch">
             <h2>Scratch Projects</h2>
             <div class="grid">
-                <div class="card">
+                <div class="card" data-modal="modal1">
                     <div class="card-header">My First Platformer</div>
                     <div class="card-body">A smooth side scrolling adventure with jumping mechanics, coin collection, and multiple levels. My proud first complete game built entirely in Scratch.</div>
                 </div>
-                <div class="card">
+                <div class="card" data-modal="modal2">
                     <div class="card-header">Work in Progress</div>
-                    <div class="card-body">Exciting new ideas currently being coded. Something bigger is coming very soon.</div>
+                    <div class="card-body">Exciting new ideas currently being coded. Something bigger and more ambitious is coming very soon.</div>
                 </div>
             </div>
             <p class="placeholder">More projects loading as creativity flows...</p>
@@ -298,9 +381,13 @@
         <section id="books">
             <h2>Books Read</h2>
             <div class="grid">
-                <div class="card">
+                <div class="card" data-modal="modal3">
                     <div class="card-header">The Hobbit</div>
                     <div class="card-body">J.R.R. Tolkien<br>My all time favorite. An unforgettable journey that ignited my love for epic fantasy worlds.</div>
+                </div>
+                <div class="card" data-modal="modal4">
+                    <div class="card-header">Harry Potter and the Sorcerer's Stone</div>
+                    <div class="card-body">J.K. Rowling<br>The magical beginning of an incredible adventure that inspired millions.</div>
                 </div>
             </div>
             <p class="placeholder">Currently lost in another great book. More coming soon.</p>
@@ -309,7 +396,7 @@
         <section id="posts">
             <h2>Posts</h2>
             <div class="grid">
-                <div class="card">
+                <div class="card" data-modal="modal5">
                     <div class="card-header">Welcome to My World</div>
                     <div class="card-body">This is just the beginning. Thank you for visiting my creative space. Stay tuned for stories, projects, and discoveries.</div>
                 </div>
@@ -318,8 +405,49 @@
         </section>
     </main>
 
+    <!-- Modals -->
+    <div class="modal" id="modal1">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>My First Platformer</h3>
+            <p>This was my very first full Scratch project! I learned how to use sprites, backdrops, gravity, collision detection, and scoring. It has three levels with increasing difficulty and a victory screen. Building this gave me confidence to keep creating.</p>
+        </div>
+    </div>
+
+    <div class="modal" id="modal2">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Work in Progress</h3>
+            <p>I'm currently working on a new interactive story game with branching choices and animated characters. It combines everything I've learned so far and adds music and sound effects. Can't wait to share it soon!</p>
+        </div>
+    </div>
+
+    <div class="modal" id="modal3">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>The Hobbit</h3>
+            <p>This book completely changed how I see adventure and imagination. Bilbo's journey from comfort to courage inspired me to step out of my own comfort zone and start creating things I'm proud of.</p>
+        </div>
+    </div>
+
+    <div class="modal" id="modal4">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Harry Potter and the Sorcerer's Stone</h3>
+            <p>The magic, friendship, and wonder in this story made me fall in love with reading. It showed me that ordinary people can discover extraordinary things about themselves.</p>
+        </div>
+    </div>
+
+    <div class="modal" id="modal5">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Welcome to My World</h3>
+            <p>Thank you for visiting! This portfolio will grow as I create more projects, read more books, and share more ideas. Come back often to see what's new.</p>
+        </div>
+    </div>
+
     <footer>
-        <p>© 2026 Jason Babs. Crafted with passion.</p>
+        <p>© 2026 Eniiyi Babs. Crafted with passion and curiosity.</p>
     </footer>
 
     <script>
@@ -328,26 +456,66 @@
         toggle.addEventListener('click', () => {
             document.body.classList.toggle('dark');
             toggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
-            toggle.style.transform = 'scale(1.3)';
-            setTimeout(() => toggle.style.transform = 'scale(1)', 200);
+            toggle.style.transform = 'scale(1.4)';
+            setTimeout(() => toggle.style.transform = 'scale(1)', 300);
         });
 
-        // Navbar scroll effect
+        // Smooth scroll from hero
+        document.getElementById('scroll-down').addEventListener('click', () => {
+            document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Navbar active state & scroll effect
         window.addEventListener('scroll', () => {
             document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 100);
+
+            let current = '';
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === `#${current}`) {
+                    a.classList.add('active');
+                }
+            });
         });
 
-        // Card reveal on scroll
+        // Section fade in on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.2 });
 
+        document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+
+        // Modal functionality
         document.querySelectorAll('.card').forEach(card => {
-            observer.observe(card);
+            card.addEventListener('click', () => {
+                const modalId = card.getAttribute('data-modal');
+                document.getElementById(modalId).classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.close-modal').forEach(close => {
+            close.addEventListener('click', () => {
+                close.closest('.modal').classList.remove('active');
+            });
+        });
+
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
         });
     </script>
 </body>
